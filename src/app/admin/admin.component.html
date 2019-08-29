@@ -1,0 +1,6 @@
+
+<div *ngFor='let admin of admin$; let i = index'>
+    <div *ngIf='i==0'>
+            <app-table [tableJson]="tableJson" [apiData]="admin$" [from] = 'from'></app-table>
+    </div>
+</div>

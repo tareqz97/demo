@@ -11,6 +11,12 @@ import { TeacherComponent } from './teacher/teacher.component';
 import { StudentComponent } from './student/student.component';
 import { ParentComponent } from './parent/parent.component';
 import { TableComponent } from './table/table.component';
+import { HttpClient } from 'selenium-webdriver/http';
+import {HttpClientModule} from '@angular/common/http'
+import { DeleteModalComponent } from './delete-modal/delete-modal.component';
+import { AddModalComponent } from './add-modal/add-modal.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { EditModalComponent } from './edit-modal/edit-modal.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,14 +26,20 @@ import { TableComponent } from './table/table.component';
     TeacherComponent,
     StudentComponent,
     ParentComponent,
-    TableComponent
+    TableComponent,
+    DeleteModalComponent,
+    AddModalComponent,
+    EditModalComponent
   ],
   imports: [
     // RouterModule.forRoot(
     //   appRoutes,// <-- debugging purposes only
     // ),
+    
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

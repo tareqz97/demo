@@ -1,0 +1,14 @@
+.modal-content{
+    margin-top: 20%;
+    text-align: left;
+}
+.modal-body .row{
+    max-width: 100%;
+}
+.item{
+    margin-left: 25px;
+}
+.btn{
+    padding-top: 0.11rem;
+    padding-bottom: 0.11rem;
+}

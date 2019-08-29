@@ -1,28 +1,35 @@
-<h2>Hover Rows</h2>
-  <p>The .table-hover class enables a hover state (grey background on mouse over) on table rows:</p>            
-  <table class="table table-hover">
-    <thead>
+
+<div class="row">       
+  <table class="table table-striped table-hover">
+    <thead class="thead-dark">
       <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
+        <ng-container *ngFor="let row of tableJson">
+          <th [hidden]="row.show == false">{{row.title}}</th>
+        </ng-container>
+        <th style="width :14%;text-align:center;">Action</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-      </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
+      <tr *ngFor="let item of apiData">
+        <th scope="row">{{item.id}}</th>
+        <td>{{item.firstName}}</td>
+        <td>{{item.lastName}}</td>
+        <td [hidden]="item.userName == null">{{item.userName}}</td>
+        <td>{{item.address}}</td>
+        <td>{{item.phoneNumber}}</td>
+        <td [hidden]="item.email == null">{{item.email}}</td>
+        <td style="width: 12%">
+          <div class="col-xs-6" style="text-align: end;margin-right: 40px;">
+              <app-edit-modal [tableJson]="tableJson" [data]="item" [userId]="userId" [from]='from'></app-edit-modal> | 
+              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" (click)="getUser(item.id)">Delete</button>
+            </div>
+            <app-delete-modal [userId]="userId" [from]='from'></app-delete-modal>
+        </td>
       </tr>
     </tbody>
   </table>
+  </div>
+  <button type="button" class="btn btn-info" data-toggle="modal" data-target="#addUser">Add User</button>
+  <app-add-modal [tableJson]="tableJson" [from]='from'></app-add-modal>
+  
+  

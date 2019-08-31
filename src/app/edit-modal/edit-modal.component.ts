@@ -36,7 +36,7 @@ export class EditModalComponent implements OnInit {
     console.log(this.id);
     this.firstName = 'firstName'+this.id;
     document.getElementById('x').id = this.id;
-    // document.getElementById('x').id = this.id;
+    document.getElementById('x').id = this.id;
     // console.log(this.id);
     // // this.profileForm.get('firstName').setValue(this.userData.firstName);
     // this.profileForm.patchValue({

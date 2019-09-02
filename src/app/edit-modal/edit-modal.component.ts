@@ -13,10 +13,7 @@ export class EditModalComponent implements OnInit {
   @Input('from') from;
   @Input('userId') userId;
   @Input ('data') userData;
-  id;
   profileForm;
-  data;
-  firstName :string;
   constructor(private getDataApi : GetDataApiService,private table : TableComponent) { }
 
   ngOnInit() {
@@ -29,26 +26,19 @@ export class EditModalComponent implements OnInit {
       email: new FormControl(''),
       password: new FormControl('')
     });
-    this.data = this.profileForm;
+
   }
   getDataById(){
-    this.id = this.userData.id;
-    console.log(this.id);
-    this.firstName = 'firstName'+this.id;
-    document.getElementById('x').id = this.id;
-    document.getElementById('x').id = this.id;
-    // console.log(this.id);
-    // // this.profileForm.get('firstName').setValue(this.userData.firstName);
-    // this.profileForm.patchValue({
-    //   firstName:this.userData.firstName,
-    //   lastName :this.userData.lastName,
-    //   address :this.userData.address,
-    //   phoneNumber : this.userData.phoneNumber,
-    //   userName : '',
-    //   email :this.userData.email == null ? ' ': this.userData.email,
-    //   password:''
-    // });
-    //  (<HTMLInputElement>document.getElementById('firstName150')).value = "adsfdas";
+    this.profileForm.patchValue({
+      firstName:this.userData.firstName,
+      lastName :this.userData.lastName,
+      address :this.userData.address,
+      phoneNumber : this.userData.phoneNumber,
+      userName : '',
+      email :this.userData.email == null ? ' ': this.userData.email,
+      password:''
+    });
+    console.log(this.profileForm.value);
 
   }
   onClose(){
@@ -61,7 +51,7 @@ export class EditModalComponent implements OnInit {
       email :'',
       password:''
     });
-  }
+    }
   
 
 }
